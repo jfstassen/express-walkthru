@@ -4,13 +4,13 @@ const path = require("path");
 
 const app = express();
 
-const adminRoutes = require("./routes/admin");
+const adminData = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public"))); // give access to public folder like css etc
 
-app.use("/admin", adminRoutes); //only routes starting with /admin will go in admin routes file
+app.use("/admin", adminData.routes); //only routes starting with /admin will go in admin routes file
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
