@@ -18,7 +18,7 @@ app.use(shopRoutes);
 
 app.use((req, res, next) => {
   // res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
-  res.status(404).render("404", {docTitle:"404 Error page"})
+  res.status(404).render("404", {pageTitle:"404 Error page"})
 });
 // app.use('/add-product', (req, res, next) => {
 //   res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">add product</button></form>')
