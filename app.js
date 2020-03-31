@@ -4,7 +4,7 @@ const path = require("path");
 
 const app = express();
 
-app.set("view engine", "pug"); // global value
+app.set("view engine", "ejs"); // global value
 app.set("views", "views"); // set the view directory: Default value, modified value
 
 const adminData = require("./routes/admin");
@@ -18,7 +18,7 @@ app.use(shopRoutes);
 
 app.use((req, res, next) => {
   // res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
-  res.status(404).render("404", {pageTitle:"404 Error page"})
+  res.status(404).render("404", {pageTitle:"404 Error page", path:""})
 });
 // app.use('/add-product', (req, res, next) => {
 //   res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">add product</button></form>')
