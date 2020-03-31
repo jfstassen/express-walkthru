@@ -12,7 +12,14 @@ router.get("/", (req, res, next) => {
   // res.sendFile(path.join(rootDir, "views", "shop.html"));
   const products = adminData.products;
   console.log(products);
-  res.render("shop", { products, pageTitle: "Shop", path: "/" }); // RENDER DEFAULT VIEWS ENGINE WITH FILENAME, and pass data to the views
+  res.render("shop", {
+    products,
+    pageTitle: "Shop",
+    path: "/",
+    hasProducts: products.length === 0,
+    activeShop: true,
+    productCSS: true
+  }); // RENDER DEFAULT VIEWS ENGINE WITH FILENAME, and pass data to the views
 });
 
 module.exports = router;

@@ -1,10 +1,16 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+const expressHbs = require("express-handlebars")
 
 const app = express();
 
-app.set("view engine", "pug"); // global value
+app.engine("hbs", expressHbs({
+  extname: "hbs",
+  defaultLayout: "main-layouts",
+  layoutsDir: "views/layouts/",
+})); //for handlebars
+app.set("view engine", "hbs"); // global value
 app.set("views", "views"); // set the view directory: Default value, modified value
 
 const adminData = require("./routes/admin");
